@@ -1,2 +1,3 @@
-# python-programmering-Lucas-ZachauFriborg
-Detta repo innehåller övningar, labs och kod för kursen i Python-programmering.
+# python-programming-Lucas-ZachauFriborg
+
+This repo contains exercises, labs, and code for the Python programming course.
