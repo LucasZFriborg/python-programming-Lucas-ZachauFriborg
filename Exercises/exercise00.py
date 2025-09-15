@@ -16,7 +16,7 @@ print(f'The other cathetus is {round(b, 1)} length units.')
 # 2. Classification accuracy
 acc = 300/365
 
-print(f'The accuracy is {acc} percent') # Gör klart denna
+print(f'The accuracy is {acc:.2f} percent')
 
 # 3. Classification accuracy
 accuracy = (2 + 985) / (2 + 985 + 2 + 11)
