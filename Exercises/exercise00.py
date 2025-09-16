@@ -32,7 +32,8 @@ B = (0, 1)
 k = (A[1] - B[1]) / (A[0] - B[0])
 print(k)
 
-# dont forget to compute m as well^
+m = B[1]
+print(f'M = {m}')
 
 # 5. Euclidean distance
 import math
