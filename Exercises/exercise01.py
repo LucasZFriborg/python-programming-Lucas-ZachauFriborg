@@ -32,7 +32,7 @@ else:
     else:
         print('The triangle does not have a right angle.')
 
-# 4. Medicine
+# # 4. Medicine
 age = int(input('Enter an age: '))
 weight = float(input('Enter a weight in kg: '))
 
