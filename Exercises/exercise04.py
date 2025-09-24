@@ -26,3 +26,4 @@ weekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag']
 print('Bambameny')
 for i in range(len(weekdays)):
     print(f'{weekdays[i]}: {food[i]}')
+
