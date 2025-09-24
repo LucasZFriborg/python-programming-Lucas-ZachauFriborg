@@ -1,8 +1,8 @@
 # 1. Area
-# def area(base, height):
-#     return (base * height) / 2
+def area(base, height):
+    return (base * height) / 2
 
-# print(f'Area of the triangle: {area(5, 4)}')
+print(f'Area of the triangle: {area(5, 4)}')
 
 # 2. Euclidean distance
 import math
