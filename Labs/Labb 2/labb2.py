@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # GRUNDUPPGIFT
-with open('datapoints.txt', 'r') as datafile:
+with open('data/datapoints.txt', 'r') as datafile:
     data = datafile.read().splitlines()
 data.pop(0)    # tar bort första raden eftersom den inte innehåller datapunkter
 
@@ -34,7 +34,7 @@ for w, h, label in dataset:
         pichu_y.append(h)
 
 testpoints = []
-with open('testpoints.txt', 'r') as testfile:
+with open('data/testpoints.txt', 'r') as testfile:
     for line in testfile.read().splitlines()[1:]:    # hoppar över rubriken eftersom den inte innehåller testpunkter
         line = line.split('.', 1)[1].strip(' ()')
         w, h = map(float, line.split(','))    # omvandlar båda till float med map
