@@ -1,50 +1,42 @@
-import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 import os
 
+# läser in datan och ger kolumnerna namnen 'x' och 'y'
 data = pd.read_csv("Labs/Labb 3/data/unlabelled_data.csv", header = None, names = ['x', 'y'])
 
-k = -1.5    # linjens lutning
-m = 0.1    # linjens skärningspunkt
+# linjens lutning och skärningspunkt justerade så att linjen delar punkterna jämnt
+k = -1.5
+m = 0.4
 
-def plot_data_with_line(k, m):    # definierar en funktion som ritar linjen
-    plt.scatter(data['x'], data['y'])    # ritar datapunkterna som spridning i diagrammet
-    x_line = np.linspace(-5, 5, 100)    # skapar x-värden
-    y_line = k * x_line + m    # räknar ut y-värden
-    plt.plot(x_line, y_line, color = 'red')    # ritar linjen
-    plt.title(f'k = {k}, m = {m}')
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.show()
-
-def classify_point(x, y, k, m):    # returnerar 1 om punkten ligger över linjen, annars 0
+# avgör om en punkt ligger ovanför eller under linjen, 1 eller 0
+def classify_point(x, y, k, m):
     line_y = k * x + m
-    if y > line_y:
-        return 1
-    else:
-        return 0
+    return 1 if y > line_y else 0
 
 labels = []
-for x, y in zip(data['x'], data['y']):
+for x, y in zip(data['x'], data['y']):    # itererar över x och y från datan samtidigt med zip
     label = classify_point(x, y, k, m)
     labels.append(label)
-
 data['label'] = labels
 
-if not os.path.exists("Labs/Labb 3/data/labelled_data.csv"):    # kollar om filen redan finns för att inte skapa en ny fil varje gång programmet körs
-    data.to_csv("Labs/Labb 3/data/labelled_data.csv", index = False)
+# kontrollerar om filen redan finns för att inte skapa en ny fil varje gång programmet körs
+if not os.path.exists("Labs/Labb 3/data/labelled_data.csv"):
+    data.to_csv("Labs/Labb 3/data/labelled_data.csv", index = False)   # tar inte med radnumret eftersom datan redan har x, y och label
 
+# delar upp datan i två klasser inför plottningen
 class0 = data[data['label'] == 0]
 class1 = data[data['label'] == 1]
 
-plt.scatter(class0['x'], class0['y'], color = 'blue', label = 'Class 0')
-plt.scatter(class1['x'], class1['y'], color = 'orange', label = 'Class 1')
-
+# skapar linjen y = kx + m
 x_line = np.linspace(-5, 5, 100)
 y_line = k * x_line + m
-plt.plot(x_line, y_line, color = 'red', label = 'Separating line')
 
+# visualisering av punkterna och linjen
+plt.scatter(class0['x'], class0['y'], color = 'blue', label = 'Class 0')
+plt.scatter(class1['x'], class1['y'], color = 'orange', label = 'Class 1')
+plt.plot(x_line, y_line, color = 'red', label = 'Separating line')
 plt.title('Classification of points')
 plt.xlabel('x')
 plt.ylabel('y')
