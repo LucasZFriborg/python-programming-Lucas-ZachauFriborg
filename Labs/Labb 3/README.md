@@ -26,5 +26,5 @@ Pythonfil som läser in datan, klassificerar punkterna och visualiserar resultat
 ## Användning
 1. Klona eller ladda ner projektmappen.
 2. Se till att alla filer ligger i mappen som programfilen körs ifrån.
-3. Kör filen labb3.py för att se klassificeringen av punkterna i ett diagram
-4. Öppna `labelled_data.csv` för att se klassificeringen i en tabell
+3. Kör filen `labb3.py` för att se klassificeringen av punkterna i ett diagram
+4. Öppna filen `labelled_data.csv` för att se klassificeringen i en tabell
